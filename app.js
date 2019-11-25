@@ -1,6 +1,6 @@
 
 function setData(){
-  alert("ok");
+
   var name= document.getElementById('sellername').value;
   var address= document.getElementById('address').value;
   var city= document.getElementById('city').value;
@@ -9,26 +9,33 @@ function setData(){
   var yearmfg= document.getElementById('yearmfg').value;
   var carmfg= document.getElementById('carmfg').value;
   var carmodel= document.getElementById('carmodel').value;
-alert(name);
-  var user={
-    'name':name,
-    'address':address,
-    'city':city,
-    'phone':phone,
-    'email':email,
-    'yearmfg':yearmfg,
-    'carmfg':carmfg,
-    'carmodel':carmodel
-  }
-//  console.log(user);
-  var users =JSON.parse(localStorage.getItem('user'));
-  if(users){
-    users.push(user);
-  }else{
-    users=[];
-    users.push(user);
-  }
-  localStorage.setItem('user', JSON.stringify(users));
+
+  if(name.trim().length==0 || address.trim().length==0 || city.trim().length==0 || phone.trim().length==0|| email.trim().length==0 || yearmfg.trim().length==0 || carmfg.trim().length==0 || carmodel.trim().length==0){
+     alert("please Enter data for all fields");
+  //   return;
+   }else{
+     var user={
+       'name':name,
+       'address':address,
+       'city':city,
+       'phone':phone,
+       'email':email,
+       'yearmfg':yearmfg,
+       'carmfg':carmfg,
+       'carmodel':carmodel
+     };
+    console.log(user);
+     var users =JSON.parse(localStorage.getItem('user'));
+     if(users){
+       users.push(user);
+     }else{
+       users=[];
+       users.push(user);
+     }
+     localStorage.setItem('user', JSON.stringify(users));
+   }
+   console.log("ok");
+
 }
 
 function getData(){
@@ -69,4 +76,8 @@ var count=1
 
 function renderUser(user){
 
+}
+
+function openDisplay(){
+  location.href="display.html";
 }
