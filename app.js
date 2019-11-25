@@ -1,5 +1,6 @@
 
 function setData(){
+
   document.getElementById("registerform").style.display = "block";
   document.getElementById("searchresult").style.display = "none";
   var name= document.getElementById('sellername').value;
@@ -41,6 +42,10 @@ function setData(){
 }
 
 function getData(){
+var rows = document.getElementById('userinfo').getElementsByTagName("tr").length;
+for (var i = 1; i < rows; i++) {
+document.getElementById("userinfo").deleteRow(1);
+}
 document.getElementById("registerform").style.display = "none";
 document.getElementById("searchresult").style.display = "block";
 var users=JSON.parse(window.localStorage.getItem('user'));
