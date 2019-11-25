@@ -1,6 +1,7 @@
 
 function setData(){
-
+  document.getElementById("registerform").style.display = "block";
+  document.getElementById("searchresult").style.display = "none";
   var name= document.getElementById('sellername').value;
   var address= document.getElementById('address').value;
   var city= document.getElementById('city').value;
@@ -12,8 +13,9 @@ function setData(){
 
   if(name.trim().length==0 || address.trim().length==0 || city.trim().length==0 || phone.trim().length==0|| email.trim().length==0 || yearmfg.trim().length==0 || carmfg.trim().length==0 || carmodel.trim().length==0){
      alert("please Enter data for all fields");
-  //   return;
+
    }else{
+
      var user={
        'name':name,
        'address':address,
@@ -34,40 +36,76 @@ function setData(){
      }
      localStorage.setItem('user', JSON.stringify(users));
    }
-   console.log("ok");
+
 
 }
 
 function getData(){
+document.getElementById("registerform").style.display = "none";
+document.getElementById("searchresult").style.display = "block";
 var users=JSON.parse(window.localStorage.getItem('user'));
 if(users){
+
   var table = document.getElementById("userinfo");
 var count=1
+var search=document.getElementById("search").value;
+  if(search && search.trim().length>0){
+
+    users.forEach((user)=>{
+
+      if(search==user.name ){
+        var row = table.insertRow(count);
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        var cell3 = row.insertCell(2);
+        var cell4 = row.insertCell(3);
+        var cell5 = row.insertCell(4);
+        var cell6 = row.insertCell(5);
+        var cell7 = row.insertCell(6);
+        var cell8 = row.insertCell(7);
+
+        cell1.innerHTML = user.name;
+        cell2.innerHTML = user.address;
+        cell3.innerHTML = user.city;
+        cell4.innerHTML = user.phone;
+        cell5.innerHTML = user.email;
+        cell6.innerHTML = user.yearmfg;
+        cell7.innerHTML = user.carmfg;
+        cell8.innerHTML = user.carmodel;
+      }
+
+      count++;
+    });
+  }else{
+
+    users.forEach((user)=>{
+        var row = table.insertRow(count);
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        var cell3 = row.insertCell(2);
+        var cell4 = row.insertCell(3);
+        var cell5 = row.insertCell(4);
+        var cell6 = row.insertCell(5);
+        var cell7 = row.insertCell(6);
+        var cell8 = row.insertCell(7);
+
+        cell1.innerHTML = user.name;
+        cell2.innerHTML = user.address;
+        cell3.innerHTML = user.city;
+        cell4.innerHTML = user.phone;
+        cell5.innerHTML = user.email;
+        cell6.innerHTML = user.yearmfg;
+        cell7.innerHTML = user.carmfg;
+        cell8.innerHTML = user.carmodel;
 
 
-  users.forEach((user)=>{
-    var row = table.insertRow(count);
-    var cell1 = row.insertCell(0);
-    var cell2 = row.insertCell(1);
-    var cell3 = row.insertCell(2);
-    var cell4 = row.insertCell(3);
-    var cell5 = row.insertCell(4);
-    var cell6 = row.insertCell(5);
-    var cell7 = row.insertCell(6);
-    var cell8 = row.insertCell(7);
 
-    cell1.innerHTML = user.name;
-    cell2.innerHTML = user.address;
-    cell3.innerHTML = user.city;
-    cell4.innerHTML = user.phone;
-    cell5.innerHTML = user.email;
-    cell6.innerHTML = user.yearmfg;
-    cell7.innerHTML = user.carmfg;
-    cell8.innerHTML = user.carmodel;
-   // document.getElementById('carinfo').innerHTML+='<li>'+user+'</li>';
-    console.log(user.name);
-    count++;
-  });
+
+
+      count++;
+    });
+  }
+
 }else{
   alert("No Data");
 }

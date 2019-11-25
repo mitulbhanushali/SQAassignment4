@@ -7,24 +7,28 @@
 
     </script>
     <title></title>
-    <<style media="screen">
+    <style media="screen">
       body {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: black;
+
 }
 
 * {
   box-sizing: border-box;
 }
+.search{
+  width: 20%;
 
+}
 /* Add padding to containers */
 .container {
   padding: 16px;
   background-color: white;
+
 }
 
 /* Full-width input fields */
-input[type=text], input[type=password] {
+input[type=text], input[type=number] {
   width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;
@@ -33,7 +37,7 @@ input[type=text], input[type=password] {
   background: #f1f1f1;
 }
 
-input[type=text]:focus, input[type=password]:focus {
+input[type=text]:focus, input[type=number]:focus {
   background-color: #ddd;
   outline: none;
 }
@@ -52,7 +56,7 @@ hr {
   margin: 8px 0;
   border: none;
   cursor: pointer;
-  width: 100%;
+  width: 25%;
   opacity: 0.9;
 }
 
@@ -65,10 +69,18 @@ a {
   color: dodgerblue;
 }
 
+
 /* Set a grey background color and center the text of the "sign in" section */
 .signin {
   background-color: #f1f1f1;
   text-align: center;
+}
+
+.searchresult{
+  display: block;
+}
+.registerform{
+  display: none;
 }
     </style>
   </head>
@@ -77,7 +89,11 @@ a {
       <div class="container">
         <h1>Register Car Inforamtion</h1>
         <p>Please Enter Car details</p>
+        <button type="button" onclick="setData()" class="registerbtn">Register</button>
+          <button type="button" onclick="getData()" class="registerbtn">Search</button>
+            <input type="text" placeholder="Search" id="search" class="search" required>
         <hr>
+        <div class="registerform" id="registerform">
         <label for="sellername"><b>Seller Name</b></label>
         <input type="text" placeholder="Enter Seller Name" id="sellername" required>
 
@@ -88,7 +104,7 @@ a {
         <input type="text" placeholder="Enter City" id="city" required>
 
         <label for="phone"><b>Phone</b></label>
-        <input type="text" placeholder="Enter phone" id="phone" required>
+        <input type="number" placeholder="Enter phone" id="phone" required>
 
         <label for="email"><b>Email</b></label>
         <input type="text" placeholder="Enter email" id="email" required>
@@ -101,14 +117,33 @@ a {
 
         <label for="carmodel"><b>Car Model</b></label>
         <input type="text" placeholder="Enter Car Model" id="carmodel" required>
+
         <hr>
+</div>
 
 
-        <button type="button" onclick="setData()" class="registerbtn">Register</button>
-          <button type="button" onclick="openDisplay()" class="registerbtn">Display</button>
+            <div class="searchresult" id="searchresult">
+
+                    <table border="1" id="userinfo">
+                    <tr>
+                      <th>Name</th>
+                      <th>Address</th>
+                      <th>City</th>
+                      <th>Phone</th>
+                      <th>Email</th>
+                      <th>Year of Mfg.</th>
+                      <th>Car Manufacturer</th>
+                      <th>Car Model</th>
+                      </tr>
+
+                    </table>
+            </div>
+
+
       </div>
 
 
     </form>
+
   </body>
 </html>
