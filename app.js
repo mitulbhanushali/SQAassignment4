@@ -59,6 +59,7 @@ var search=document.getElementById("search").value;
     users.forEach((user)=>{
 
       if(search==user.name ){
+
         var row = table.insertRow(count);
         var cell1 = row.insertCell(0);
         var cell2 = row.insertCell(1);
@@ -77,9 +78,10 @@ var search=document.getElementById("search").value;
         cell6.innerHTML = user.yearmfg;
         cell7.innerHTML = user.carmfg;
         cell8.innerHTML = user.carmodel;
+         count++;
       }
 
-      count++;
+     
     });
   }else{
 
