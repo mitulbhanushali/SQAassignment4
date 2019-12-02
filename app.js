@@ -14,9 +14,18 @@ function setData(){
 
 
   if(name.trim().length==0 || address.trim().length==0 || city.trim().length==0 || phone.trim().length!=10 || email.trim().length==0 || yearmfg.trim().length==0 || carmfg.trim().length==0 || carmodel.trim().length==0){
-     alert("please Enter data for all fields");
+     alert("Please enter data for all fields");
 
    }else{
+
+    if(!ValidateEmail(email)){
+      return;
+    }
+
+    if(!ValidateYear(yearmfg)){
+      return;
+    }
+
     
 
      var user={
@@ -128,4 +137,22 @@ function openDisplay(){
   location.href="display.html";
 }
 
+function ValidateEmail(mail) 
+{
+ if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail))
+  {
+    return true;
+  }
+    alert("You have entered an invalid email address!")
+    return false;
+}
+
+function ValidateYear(yearmfg) {
+ var year=parseInt(yearmfg);
+ if(year>=2008 && year <=2019){
+  return true;
+ }
+alert("Enter year between 2008 and 2019");
+ return false;
+}
 
