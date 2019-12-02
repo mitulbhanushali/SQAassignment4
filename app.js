@@ -26,6 +26,10 @@ function setData(){
       return;
     }
 
+    if(!ValidatePhone(phone)){
+      return;
+    }
+
     
 
      var user={
@@ -154,5 +158,14 @@ function ValidateYear(yearmfg) {
  }
 alert("Enter year between 2008 and 2019");
  return false;
+}
+
+function ValidatePhone(phone) {
+    const regex = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+     if(regex.test(phone)){
+      return true;
+     }
+     alert("Valid phone number");
+     return false;
 }
 
