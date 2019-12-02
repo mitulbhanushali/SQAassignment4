@@ -36,6 +36,7 @@ function setData(){
        users.push(user);
      }
      localStorage.setItem('user', JSON.stringify(users));
+     alert("User data Added")
    }
 
 
