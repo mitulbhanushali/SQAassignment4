@@ -12,10 +12,12 @@ function setData(){
   var carmfg= document.getElementById('carmfg').value;
   var carmodel= document.getElementById('carmodel').value;
 
-  if(name.trim().length==0 || address.trim().length==0 || city.trim().length==0 || phone.trim().length==0|| email.trim().length==0 || yearmfg.trim().length==0 || carmfg.trim().length==0 || carmodel.trim().length==0){
+
+  if(name.trim().length==0 || address.trim().length==0 || city.trim().length==0 || phone.trim().length!=10 || email.trim().length==0 || yearmfg.trim().length==0 || carmfg.trim().length==0 || carmodel.trim().length==0){
      alert("please Enter data for all fields");
 
    }else{
+    
 
      var user={
        'name':name,
@@ -120,10 +122,10 @@ var search=document.getElementById("search").value;
 
 }
 
-function renderUser(user){
 
-}
 
 function openDisplay(){
   location.href="display.html";
 }
+
+
